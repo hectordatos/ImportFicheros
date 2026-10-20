@@ -1,0 +1,111 @@
+---
+title: "Pon un título a tu documento"
+author: "Pon aquí tu nombre y apellidos"
+date: "`r Sys.Date()`"
+output:
+  bookdown::pdf_document2:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+    figure_caption: "Figura" # Referencias en castellano
+    table_caption: "Tabla"
+  html_document:
+    echo: true
+    number_sections: true
+    theme: lumen
+    toc: true
+  html_notebook:
+    echo: true
+    number_sections: true
+    toc: true
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    number_sections: true
+  bookdown::html_document2:
+    echo: true
+    number_sections: true
+    theme: spacelab
+    toc: true
+    figure_caption: "Figura"
+    table_caption: "Tabla"
+always_allow_html: true
+params:
+  lang: ES
+lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
+subtitle: "Introducción a la Ciencia de Datos. Máster en Ciencia de Datos- UV"
+language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Ecuación '
+    thm: 'Teorema '
+    lem: 'Lema '
+    def: 'Definición '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Demostración. '
+    remark: 'Nota: '
+    solution: 'Solución. '
+---
+
+# Ejercicio 2
+
+```{r}
+# Cargar librerías necesarias
+#library(hms)
+#library(readr)
+
+
+# Con la importación con base obtenemos un dataset separado por variables, en cambio con el readr no recivimos un dataset y no  nos separa por clases.
+
+# Leer el fichero con read.csv y stringsAsFactors = F
+fname <- 'data/DFP1_11122015 124700.csv'
+df <- read.csv(fname, stringsAsFactors = FALSE)
+
+
+# Convertir fecha y hora con as.POSIXlt y as.hms
+# Suponiendo que las columnas correspondientes se llamen 'Fecha' y 'Hora':
+df$FECHA <- as.POSIXlt(df$FECHA)
+df$HORA  <- as.hms(df$HORA)
+
+
+if (!dir.exists("./results")) {
+  dir.create("./results", recursive = TRUE)
+}
+
+# 2. Guardar el dataframe en la ruta correcta
+save(df, file = "./results/df.RData")
+
+
+
+# Inspección de los datos
+# str(df): Muestra la estructura general (filas, columnas, tipos de datos y primeros valores)
+str(df)
+
+# head(df): Muestra las primeras 6 filas para revisar los encabezados y datos iniciales
+head(df)
+
+# tail(df): Muestra las últimas 6 filas para comprobar que el archivo cargó completo y sin errores
+tail(df)
+
+# summary(df): Genera el resumen estadístico (mín, media, máx y NAs en números; tipo y dimensión en texto)
+summary(df)
+
+
+```
+
+# Ejercicio 3
+
+```{r}
+# Una vez descragado el csv lo importamos con readr
+# library(readr)
+fname <- 'data/bakery_sales_revised.csv'
+df1 <- read.csv(fname, stringsAsFactors = FALSE)
+
+
+
+
+```
