@@ -54,6 +54,8 @@ language:
 # Ejercicio 2
 
 ```{r}
+
+# Al cmabiar nombre igual pierdo commits
 # Cargar librerías necesarias
 library(hms)
 library(readr)
