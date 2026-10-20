@@ -129,3 +129,29 @@ tail(df1)
 summary(df1)
 
 ```
+
+# Ejercicio 4
+
+```{r}
+#library(haven)
+fname <- 'data/PsychBike.sav'
+df2<- read_sav(fname)
+
+# Guardamos el dataframe
+save(df2, file = "./data/results/df.RData")
+
+
+# Inspección de los datos
+# str(df): Muestra la estructura general (filas, columnas, tipos de datos y primeros valores)
+str(df2)
+
+# head(df): Muestra las primeras 6 filas para revisar los encabezados y datos iniciales
+head(df2)
+
+# tail(df): Muestra las últimas 6 filas para comprobar que el archivo cargó completo y sin errores
+tail(df2)
+
+# summary(df): Genera el resumen estadístico (mín, media, máx y NAs en números; tipo y dimensión en texto)
+summary(df2)
+
+```
