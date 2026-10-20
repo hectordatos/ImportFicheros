@@ -207,3 +207,29 @@ tail(df_iris)
 summary(df_iris)
 
 ```
+
+# Ejercicio 7
+
+```{r}
+library(jsonlite)
+
+filename <- './data/FileCodificado.json'
+
+# 7.2 Importar el fichero FileCodificado.json
+# 1. (El fichero se puede abrir desde la pestaña Files en RStudio)
+
+# 2. Leer JSON simplificando vectores/data frames automáticamente
+df_json <- read_json(filename, simplifyVector = TRUE)
+
+
+save(df_json, file = "./data/results/dj_json.RData")
+
+
+# 7.3 Inspección de los datos
+str(df_json)
+head(df_json)
+tail(df_json)
+summary(df_json)
+
+
+```
