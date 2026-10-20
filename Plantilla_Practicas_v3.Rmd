@@ -112,7 +112,7 @@ bakery_sales_revised <- read_csv("data/bakery_sales_revised.csv",
 View(bakery_sales_revised)
 
 # Guardamos el dataframe
-save(df, file = "./data/results/df.RData")
+save(df, file = "./data/results/df1.RData")
 
 
 # Inspección de los datos
@@ -138,7 +138,7 @@ fname <- 'data/PsychBike.sav'
 df2<- read_sav(fname)
 
 # Guardamos el dataframe
-save(df2, file = "./data/results/df.RData")
+save(df2, file = "./data/results/df2.RData")
 
 
 # Inspección de los datos
@@ -152,7 +152,7 @@ head(df2)
 tail(df2)
 
 # summary(df): Genera el resumen estadístico (mín, media, máx y NAs en números; tipo y dimensión en texto)
-summary(df2)
+#summary(df2)
 
 ```
 
@@ -170,4 +170,40 @@ download.file(url_zip, destfile = zip_path, mode = "wb")
 
 # 5.1 Descomprimir el fichero en la carpeta 'data'
 unzip(zipfile = zip_path, exdir = "data")
+```
+
+# Ejercicio 6
+
+```{r}
+
+# ==========================================
+# 6.1 Importación del fichero
+# ==========================================
+
+# 1. Utilizar read_table para importar los datos
+# (iris.data utiliza comas como separador)
+df_iris <- read.table("data/iris.data",sep= ',')
+
+# 2. Cambiar el nombre de las columnas según la documentación oficial de UCI
+# Nombres oficiales: Sepal Length, Sepal Width, Petal Length, Petal Width, Class
+colnames(df_iris) <- c("sepal_length", "sepal_width", "petal_length", "petal_width", "class")
+
+save(df_iris,file= "./data/results/df_iris.RData")
+
+# ==========================================
+# 6.2 Inspección de los datos
+# ==========================================
+
+# str(df_iris): Estrutura de los datos (filas, columnas, tipos de datos)
+str(df_iris)
+
+# head(df_iris): Primeras 6 filas del dataset
+head(df_iris)
+
+# tail(df_iris): Últimas 6 filas del dataset
+tail(df_iris)
+
+# summary(df_iris): Resumen estadístico (mín, media, máx, etc.)
+summary(df_iris)
+
 ```
