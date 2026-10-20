@@ -77,7 +77,7 @@ if (!dir.exists("./results")) {
 }
 
 # 2. Guardar el dataframe en la ruta correcta
-save(df, file = "./results/df.RData")
+save(df, file = "./data/results/df.RData")
 
 
 
@@ -102,9 +102,17 @@ summary(df)
 ```{r}
 # Una vez descragado el csv lo importamos con readr
 # library(readr)
-fname <- 'data/bakery_sales_revised.csv'
+fname <- './data/bakery_sales_revised.csv'
 df1 <- read.csv(fname, stringsAsFactors = FALSE)
 
+# Código para la importacion y cambio de datos 
+bakery_sales_revised <- read_csv("data/bakery_sales_revised.csv", 
+                                 col_types = cols(Transaction = col_integer(), 
+                                                  date_time = col_datetime(format = "%m/%d/%Y %H:%M")))
+View(bakery_sales_revised)
+
+# Guardamos el dataframe
+save(df, file = "./data/results/df.RData")
 
 
 
