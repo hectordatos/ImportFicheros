@@ -222,7 +222,7 @@ filename <- './data/FileCodificado.json'
 df_json <- read_json(filename, simplifyVector = TRUE)
 
 
-save(df_json, file = "./data/results/dj_json.RData")
+save(df_json, file = "./data/results/FileCodificado.RData")
 
 
 # 7.3 Inspección de los datos
