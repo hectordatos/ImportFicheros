@@ -3,12 +3,10 @@ title: "Pon un título a tu documento"
 author: "Pon aquí tu nombre y apellidos"
 date: "`r Sys.Date()`"
 output:
-  bookdown::pdf_document2:
+  pdf_document:
     toc: true
     toc_depth: 3
     number_sections: true
-    figure_caption: "Figura" # Referencias en castellano
-    table_caption: "Tabla"
   html_document:
     echo: true
     number_sections: true
@@ -18,10 +16,12 @@ output:
     echo: true
     number_sections: true
     toc: true
-  pdf_document:
+  bookdown::pdf_document2:
     toc: true
     toc_depth: 3
     number_sections: true
+    figure_caption: "Figura" # Referencias en castellano
+    table_caption: "Tabla"
   bookdown::html_document2:
     echo: true
     number_sections: true
@@ -55,8 +55,8 @@ language:
 
 ```{r}
 # Cargar librerías necesarias
-#library(hms)
-#library(readr)
+library(hms)
+library(readr)
 
 
 # Con la importación con base obtenemos un dataset separado por variables, en cambio con el readr no recivimos un dataset y no  nos separa por clases.
@@ -101,7 +101,7 @@ summary(df)
 
 ```{r}
 # Una vez descragado el csv lo importamos con readr
-# library(readr)
+ library(readr)
 fname <- './data/bakery_sales_revised.csv'
 df1 <- read.csv(fname, stringsAsFactors = FALSE)
 
@@ -133,7 +133,7 @@ summary(df1)
 # Ejercicio 4
 
 ```{r}
-#library(haven)
+library(haven)
 fname <- 'data/PsychBike.sav'
 df2<- read_sav(fname)
 
@@ -254,11 +254,11 @@ summary(df_json1)
 
 ```
 
-## 8.3 
+## 8.3
 
 ```{r}
-#library(jsonlite)
-#library(readr)
+library(jsonlite)
+library(readr)
 
 # Cargar el archivo guardado en el paso anterior
 load("./data/Results/df_iris.RData")
