@@ -174,26 +174,25 @@ unzip(zipfile = zip_path, exdir = "data")
 
 # Ejercicio 6
 
+# 6.1 Importación del fichero
+
 ```{r}
 
-# ==========================================
-# 6.1 Importación del fichero
-# ==========================================
-
-# 1. Utilizar read_table para importar los datos
-# (iris.data utiliza comas como separador)
+# Utilizar read_table para importar los datos
 df_iris <- read.table("data/iris.data",sep= ',')
 
-# 2. Cambiar el nombre de las columnas según la documentación oficial de UCI
+# Cambiar el nombre de las columnas según la documentación oficial de UCI
 # Nombres oficiales: Sepal Length, Sepal Width, Petal Length, Petal Width, Class
 colnames(df_iris) <- c("sepal_length", "sepal_width", "petal_length", "petal_width", "class")
 
 save(df_iris,file= "./data/results/df_iris.RData")
 
-# ==========================================
-# 6.2 Inspección de los datos
-# ==========================================
 
+```
+
+# 6.2 Inspección de los datos
+
+```{r}
 # str(df_iris): Estrutura de los datos (filas, columnas, tipos de datos)
 str(df_iris)
 
@@ -205,7 +204,6 @@ tail(df_iris)
 
 # summary(df_iris): Resumen estadístico (mín, media, máx, etc.)
 summary(df_iris)
-
 ```
 
 # Ejercicio 7
@@ -265,11 +263,10 @@ summary(df_json1)
 # Cargar el archivo guardado en el paso anterior
 load("./data/Results/df_iris.RData")
 
-# 1. Exportar directamente a JSON con write_json
+# Exportar directamente a JSON con write_json
 write_json(df_iris, path = "./data/iris_json_v1.json")
 
-# 2. Alternativa con toJSON y write_file
-# Sin el parámetro 'pretty' (genera el JSON en una sola línea compacta)
+# Alternativa con toJSON y write_file
 json_string_raw <- toJSON(df_iris)
 write_file(json_string_raw, file = "data/iris_json_v2.json")
 
