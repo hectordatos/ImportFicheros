@@ -233,3 +233,47 @@ summary(df_json)
 
 
 ```
+
+# Ejercicio 8
+
+```{r}
+filename <- ("./data/iris_json.json")
+df_json1 <- read_json(filename, simplifyVector = TRUE)
+
+#Importar con fromJSON
+df_pr <- fromJSON(filename)
+
+# No hay diferencia entre los dataframes
+
+# Guaradamos el dataframe
+save(df_json1, file = "./data/results/df_json1.RData")
+
+#Inspección de los datos
+str(df_json1)
+head(df_json1)
+tail(df_json1)
+summary(df_json1)
+
+```
+
+## 8.3 
+
+```{r}
+#library(jsonlite)
+#library(readr)
+
+# Cargar el archivo guardado en el paso anterior
+load("./data/Results/df_iris.RData")
+
+# 1. Exportar directamente a JSON con write_json
+write_json(df_iris, path = "./data/iris_json_v1.json")
+
+# 2. Alternativa con toJSON y write_file
+# Sin el parámetro 'pretty' (genera el JSON en una sola línea compacta)
+json_string_raw <- toJSON(df_iris)
+write_file(json_string_raw, file = "data/iris_json_v2.json")
+
+# Con el parámetro 'pretty = TRUE' (formatea el JSON con sangrías e saltos de línea)
+json_string_pretty <- toJSON(df_iris, pretty = TRUE)
+write_file(json_string_pretty, file = "data/iris_json_v3.json")
+```
