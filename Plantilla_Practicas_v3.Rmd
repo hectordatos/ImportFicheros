@@ -115,5 +115,17 @@ View(bakery_sales_revised)
 save(df, file = "./data/results/df.RData")
 
 
+# Inspección de los datos
+# str(df): Muestra la estructura general (filas, columnas, tipos de datos y primeros valores)
+str(df1)
+
+# head(df): Muestra las primeras 6 filas para revisar los encabezados y datos iniciales
+head(df1)
+
+# tail(df): Muestra las últimas 6 filas para comprobar que el archivo cargó completo y sin errores
+tail(df1)
+
+# summary(df): Genera el resumen estadístico (mín, media, máx y NAs en números; tipo y dimensión en texto)
+summary(df1)
 
 ```
