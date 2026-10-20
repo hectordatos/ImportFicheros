@@ -155,3 +155,19 @@ tail(df2)
 summary(df2)
 
 ```
+
+# Ejercicio 5
+
+```{r}
+# 5. Descargar el archivo zip de Iris desde UCI Machine Learning Repository
+url_zip <- "https://archive.ics.uci.edu/static/public/53/iris.zip"
+
+# Definir la ruta donde se guardará el archivo .zip
+zip_path <- "data/iris.zip"
+
+# Descargar el archivo zip
+download.file(url_zip, destfile = zip_path, mode = "wb")
+
+# 5.1 Descomprimir el fichero en la carpeta 'data'
+unzip(zipfile = zip_path, exdir = "data")
+```
